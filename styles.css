@@ -118,7 +118,7 @@ h1 {
   border-radius: 0.75rem;
 }
 
-.contact-cta a {
+.contact-cta p a {
   color: var(--gold);
 }
 
