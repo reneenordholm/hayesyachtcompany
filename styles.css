@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text);
   background: var(--white);
   line-height: 1.6;
@@ -30,10 +30,32 @@ img {
   margin: 0 auto;
 }
 
+/* Brand / logo header */
+
+.brand-header {
+  background: var(--white);
+  padding: 1.5rem 0 1.1rem;
+  text-align: center;
+}
+
+.site-logo {
+  width: min(560px, 92%);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+/* Hero */
+
 .hero {
   background: linear-gradient(160deg, var(--navy), var(--navy-light));
   color: var(--white);
   padding: 3rem 0 2rem;
+}
+
+.hero__content {
+  text-align: center;
+  max-width: 900px;
 }
 
 .eyebrow {
@@ -47,22 +69,33 @@ img {
 h1,
 h2,
 h3 {
+  font-family: "Cinzel", Georgia, "Times New Roman", serif;
   line-height: 1.2;
+  letter-spacing: 0.03em;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin: 0.5rem 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin: 0.5rem auto 0.75rem;
+  max-width: 1000px;
 }
 
 .hero__tagline {
-  font-size: 1.2rem;
-  margin-top: 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin: 0;
+  font-weight: 700;
+}
+
+.hero__subtext {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0;
+  font-weight: 600;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
   margin-top: 1.25rem;
 }
@@ -86,9 +119,27 @@ h1 {
   border-color: rgba(255, 255, 255, 0.65);
 }
 
+.button--primary:hover,
+.button--primary:focus {
+  filter: brightness(1.05);
+}
+
+.button--secondary:hover,
+.button--secondary:focus {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .hero__image {
   margin-top: 2rem;
 }
+
+.hero__image img {
+  width: 100%;
+  height: clamp(240px, 45vw, 520px);
+  object-fit: cover;
+}
+
+/* Sections */
 
 .section {
   padding: 3rem 0;
@@ -111,11 +162,17 @@ h1 {
   padding: 1rem;
 }
 
+.card img {
+  width: 100%;
+  height: auto;
+}
+
 .contact-cta {
   background: var(--navy);
   color: var(--white);
   padding: 1.5rem;
   border-radius: 0.75rem;
+  text-align: center;
 }
 
 .contact-cta p a {
@@ -129,6 +186,8 @@ h1 {
   text-align: center;
 }
 
+/* Responsive */
+
 @media (min-width: 760px) {
   .grid--two {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -136,5 +195,37 @@ h1 {
 
   .grid--three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  h1 {
+    font-size: clamp(2.3rem, 11vw, 3.5rem);
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-header {
+    padding: 1rem 0 0.85rem;
+  }
+
+  .site-logo {
+    width: min(430px, 96%);
+  }
+
+  .hero {
+    padding: 2.25rem 0 1.75rem;
+  }
+
+  .hero__actions {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
   }
 }
